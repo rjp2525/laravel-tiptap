@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace RJP\Tiptap;
 
 use RJP\Tiptap\Contracts\TiptapInterface;
-use Spatie\LaravelPackageTools\{
-    Package,
-    PackageServiceProvider
-};
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class TiptapServiceProvider extends PackageServiceProvider
 {

@@ -7,12 +7,10 @@ namespace RJP\Tiptap\Builders;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
 use RJP\Tiptap\Tiptap;
-use Tiptap\Extensions\{
-    Color,
-    FontFamily,
-    StarterKit,
-    TextAlign
-};
+use Tiptap\Extensions\Color;
+use Tiptap\Extensions\FontFamily;
+use Tiptap\Extensions\StarterKit;
+use Tiptap\Extensions\TextAlign;
 
 class TiptapBuilder
 {

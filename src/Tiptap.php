@@ -8,12 +8,10 @@ use Illuminate\Support\Facades\Cache;
 use RJP\Tiptap\Builders\TiptapBuilder;
 use RJP\Tiptap\Contracts\TiptapInterface;
 use Tiptap\Editor;
-use Tiptap\Extensions\{
-    Color,
-    FontFamily,
-    StarterKit,
-    TextAlign
-};
+use Tiptap\Extensions\Color;
+use Tiptap\Extensions\FontFamily;
+use Tiptap\Extensions\StarterKit;
+use Tiptap\Extensions\TextAlign;
 
 final class Tiptap implements TiptapInterface
 {
