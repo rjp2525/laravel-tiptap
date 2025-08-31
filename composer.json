@@ -1,0 +1,79 @@
+{
+    "name": "rjp2525/laravel-tiptap",
+    "version": "1.0.0",
+    "description": "A fluent Laravel wrapper for Tiptap PHP",
+    "keywords": [
+        "rjp2525",
+        "laravel",
+        "laravel-tiptap",
+        "tiptap",
+        "tiptap-php",
+        "rich-text",
+        "text-editor"
+    ],
+    "homepage": "https://github.com/rjp2525/laravel-tiptap",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Reno Philibert",
+            "email": "hello@reno.sh",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "^10.0||^11.0||^12.0",
+        "spatie/laravel-package-tools": "^1.16",
+        "ueberdosis/tiptap-php": "^2.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.14",
+        "nunomaduro/collision": "^8.8",
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^10.0.0||^9.0.0||^8.0.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RJP\\Tiptap\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RJP\\Tiptap\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RJP\\Tiptap\\TiptapServiceProvider"
+            ],
+            "aliases": {
+                "Tiptap": "RJP\\Tiptap\\Facades\\Tiptap"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

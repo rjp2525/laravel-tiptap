@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Request a feature
+    url: https://github.com/rjp2525/laravel-tiptap/discussions/new?category=ideas
+    about: Share ideas for new features
+  - name: Report a security issue
+    url: https://github.com/rjp2525/laravel-tiptap/security/policy
+    about: Notify about critical security issues
