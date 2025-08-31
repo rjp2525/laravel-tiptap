@@ -88,7 +88,7 @@ php artisan vendor:publish --tag="laravel-tiptap-views"
 ### Using the Facade
 
 ```php
-use RJP\LaravelTiptap\Facades\Tiptap;
+use RJP\Tiptap\Facades\Tiptap;
 
 // Parse JSON to HTML
 $json = [
@@ -121,7 +121,7 @@ $stats = Tiptap::getStats($json);
 ### Using the Fluent Builder
 
 ```php
-use RJP\LaravelTiptap\Facades\Tiptap;
+use RJP\Tiptap\Facades\Tiptap;
 
 // Content processing with method chaining
 $result = Tiptap::make()
@@ -235,7 +235,7 @@ $result = Tiptap::make()
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use RJP\LaravelTiptap\Facades\Tiptap;
+use RJP\Tiptap\Facades\Tiptap;
 
 class CreateArticleRequest extends FormRequest
 {
@@ -262,7 +262,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use RJP\LaravelTiptap\Facades\Tiptap;
+use RJP\Tiptap\Facades\Tiptap;
 
 class Article extends Model
 {
@@ -320,7 +320,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateArticleRequest;
 use App\Models\Article;
-use RJP\LaravelTiptap\Facades\Tiptap;
+use RJP\Tiptap\Facades\Tiptap;
 
 class ArticleController extends Controller
 {
@@ -367,7 +367,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use RJP\LaravelTiptap\Facades\Tiptap;
+use RJP\Tiptap\Facades\Tiptap;
 use App\Models\Article;
 
 class ProcessArticleContentJob implements ShouldQueue
@@ -416,7 +416,7 @@ class ProcessArticleContentJob implements ShouldQueue
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use RJP\LaravelTiptap\Facades\Tiptap;
+use RJP\Tiptap\Facades\Tiptap;
 
 class TiptapContent extends Component
 {
@@ -456,7 +456,7 @@ While the Tiptap PHP package currently supports StarterKit, Color, FontFamily, a
 
 ```php
 // In a service provider
-use RJP\LaravelTiptap\Tiptap;
+use RJP\Tiptap\Tiptap;
 
 $this->app->extend(TiptapInterface::class, function (Tiptap $service) {
     // Add your custom extension logic here
@@ -478,8 +478,8 @@ You can create your own service implementation for advanced customization:
 
 namespace App\Services;
 
-use RJP\LaravelTiptap\Contracts\TiptapInterface;
-use RJP\LaravelTiptap\Tiptap;
+use RJP\Tiptap\Contracts\TiptapInterface;
+use RJP\Tiptap\Tiptap;
 
 class CustomTiptap implements TiptapInterface
 {
@@ -521,7 +521,7 @@ The `TiptapBuilder` class is designed to be extended as well:
 
 namespace App\Services;
 
-use RJP\LaravelTiptap\Builders\TiptapBuilder;
+use RJP\Tiptap\Builders\TiptapBuilder;
 
 class CustomTiptapBuilder extends TiptapBuilder
 {
@@ -576,7 +576,7 @@ Then create a custom service that uses your builder:
 
 namespace App\Services;
 
-use RJP\LaravelTiptap\Tiptap;
+use RJP\Tiptap\Tiptap;
 
 class ExtendedTiptap extends Tiptap
 {
@@ -593,7 +593,7 @@ Add methods to the existing builder without extending:
 
 ```php
 // In a service provider boot method
-use RJP\LaravelTiptap\Builders\TiptapBuilder;
+use RJP\Tiptap\Builders\TiptapBuilder;
 
 TiptapBuilder::macro('seoAnalysis', function () {
     return [
