@@ -57,13 +57,13 @@ final class Tiptap implements TiptapInterface
                 ->remember($cacheKey, $this->getCacheTtl(), function () use ($html, $extensionInstances) {
                     $json = $this->createEditor($extensionInstances)->setContent($html)->getJSON();
 
-                    return is_string($json) ? json_decode($json, true) : $json;
+                    return json_decode($json, true);
                 });
         }
 
         $json = $this->createEditor($extensionInstances)->setContent($html)->getJSON();
 
-        return is_string($json) ? json_decode($json, true) : $json;
+        return json_decode($json, true);
     }
 
     public function validate(array|string $content, array $rules = []): bool
@@ -96,7 +96,7 @@ final class Tiptap implements TiptapInterface
         $contentArray = $isString ? json_decode($content, true) : $content;
 
         $json = $this->createEditor($extensionInstances)->setContent($contentArray)->getJSON();
-        $sanitized = is_string($json) ? json_decode($json, true) : $json;
+        $sanitized = json_decode($json, true);
 
         return $isString ? json_encode($sanitized) : $sanitized;
     }
